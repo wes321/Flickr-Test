@@ -55,6 +55,10 @@ static NSString * const imagesPerRequest = @"25";
 
 - (void)getCommentsForPhotoId:(NSNumber *)photoId
 {
+    
+    //Test PhotoId with Comments
+   // photoId = @(14888674755);
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *URL = [NSString stringWithFormat:@"%@method=flickr.photos.comments.getList&api_key=%@&photo_id=%@&format=json&nojsoncallback=1",baseURL,flickrAPIKey,photoId];
     NSLog(@"URL-%@",URL);
@@ -69,11 +73,14 @@ static NSString * const imagesPerRequest = @"25";
             for (int i = 0; i < [comments count]; i++) {
                 Comment *comment = [[Comment alloc]init];
                 
+                comment.message     = [[comments objectAtIndex:i] objectForKey:@"_content"];
+                comment.username    = [[comments objectAtIndex:i] objectForKey:@"authorname"];
                 
-
-//                if(image.imageURL){
-//                    [imageObjectArray addObject:image];
-//                }
+                NSTimeInterval seconds = [[[comments objectAtIndex:i] objectForKey:@"datecreate"] doubleValue];
+                NSDate *epochNSDate = [[NSDate alloc] initWithTimeIntervalSince1970:seconds];
+                comment.dateCreated = epochNSDate;
+                
+                [commentObjectArray addObject:comment];
             }
             
             if ([self.delegate respondsToSelector:@selector(commentsReturned:)]){

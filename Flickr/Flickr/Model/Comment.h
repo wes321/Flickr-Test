@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Comment : NSObject
-
+@property (nonatomic, retain) NSString *username;
+@property (nonatomic, retain) NSString *message;
+@property (nonatomic, retain) NSDate *dateCreated;
 @end

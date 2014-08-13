@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UIView *detailsView;
 @property (retain, nonatomic) NSArray *comments;
+@property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
 @end
 
 @implementation ImageGridCell
@@ -32,27 +33,30 @@
 - (void)setImage:(Image *)image
 {
     _image = image;
-    
-    _detailsView.hidden = YES;
+    self.detailsView.hidden = YES;
     
     //Setup Cell
     [self.mainImageView setImageWithURL:[NSURL URLWithString:image.imageURL] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     self.usernameLabel.text = [NSString stringWithFormat:@"By: %@",image.username];
     self.titleLabel.text = image.title;
+    self.commentCountLabel.text = @"";
+    
+    self.comments = nil;
 }
 
 - (void)toggleDetailsView
 {
-    if(_detailsView.hidden){
+    if(self.detailsView.hidden){
         [self loadComments];
 
-        _detailsView.hidden = NO;
-        _detailsView.alpha = 0;
+        self.detailsView.hidden = NO;
+        self.detailsView.alpha = 0;
+        self.commentButton.hidden = YES;
         [UIView animateWithDuration:0.2
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
-                             _detailsView.alpha = 1;
+                             self.detailsView.alpha = 1;
                          }
                          completion:^(BOOL finished){
                              
@@ -62,10 +66,10 @@
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseInOut
                          animations:^{
-                             _detailsView.alpha = 0;
+                             self.detailsView.alpha = 0;
                          }
                          completion:^(BOOL finished){
-                             _detailsView.hidden = YES;
+                             self.detailsView.hidden = YES;
                          }];
     }
 }
@@ -73,9 +77,6 @@
 - (void)loadComments
 {
     if(!self.comments){
-        self.commentButton.titleLabel.text = @"";
-        
-        //Get Comments From API
         API *api = [[API alloc]init];
         api.delegate = self;
         [api getCommentsForPhotoId:self.image.imageID];
@@ -86,7 +87,27 @@
 - (void)commentsReturned:(NSArray *)comments
 {
     self.comments = comments;
-    self.commentButton.titleLabel.text = [NSString stringWithFormat:@"%i",[comments count]];
+    if([comments count] > 0){
+        self.commentCountLabel.text = [NSString stringWithFormat:@"%i",[comments count]];
+        self.commentCountLabel.alpha = 0;
+        self.commentCountLabel.hidden = NO;
+        
+        self.commentButton.alpha = 0;
+        self.commentButton.hidden = NO;
+        [UIView animateWithDuration:0.2
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             self.commentButton.alpha = 1;
+                             self.commentCountLabel.alpha = 1;
+                         }
+                         completion:^(BOOL finished){
+                         }];
+    } else {
+        self.commentCountLabel.text = @"";
+        self.commentButton.hidden = YES;
+        self.commentCountLabel.hidden = YES;
+    }
 }
 
 

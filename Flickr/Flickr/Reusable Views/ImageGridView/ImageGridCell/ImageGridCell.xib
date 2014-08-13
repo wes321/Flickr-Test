@@ -20,28 +20,35 @@
                     </imageView>
                     <view contentMode="scaleToFill" id="GrW-YF-44m">
                         <rect key="frame" x="0.0" y="258" width="320" height="62"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SI9-zs-J0Z">
                                 <rect key="frame" x="10" y="37" width="221" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="yXV-Vn-rBJ">
+                                <rect key="frame" x="260" y="40" width="59" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" red="0.74691611528396606" green="0.28073409199714661" blue="0.25899237394332886" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" id="t9o-kJ-hJ8">
-                                <rect key="frame" x="260" y="0.0" width="59" height="62"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="252" y="0.0" width="68" height="62"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <inset key="titleEdgeInsets" minX="-40" minY="42" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="10" minY="-20" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="434333" image="chatIcon">
+                                <inset key="imageEdgeInsets" minX="6" minY="-20" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" image="chatIcon">
                                     <color key="titleColor" red="0.74691611528396606" green="0.28073409199714661" blue="0.25899237394332886" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TK7-h9-ZrO">
                                 <rect key="frame" x="10" y="8" width="221" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -55,6 +62,7 @@
             <size key="customSize" width="200" height="176"/>
             <connections>
                 <outlet property="commentButton" destination="t9o-kJ-hJ8" id="1lD-bm-60V"/>
+                <outlet property="commentCountLabel" destination="yXV-Vn-rBJ" id="Bfc-NA-VLh"/>
                 <outlet property="detailsView" destination="GrW-YF-44m" id="1Cw-UU-gte"/>
                 <outlet property="mainImageView" destination="nIN-sj-4b0" id="xos-Da-Rou"/>
                 <outlet property="titleLabel" destination="TK7-h9-ZrO" id="HeJ-iX-QGC"/>

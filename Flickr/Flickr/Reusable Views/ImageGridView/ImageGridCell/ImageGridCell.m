@@ -8,13 +8,15 @@
 
 #import "ImageGridCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "API.h"
 
-@interface ImageGridCell ()
+@interface ImageGridCell () <APIDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @property (weak, nonatomic) IBOutlet UIImageView *mainImageView;
 @property (weak, nonatomic) IBOutlet UIView *detailsView;
+@property (retain, nonatomic) NSArray *comments;
 @end
 
 @implementation ImageGridCell
@@ -42,6 +44,8 @@
 - (void)toggleDetailsView
 {
     if(_detailsView.hidden){
+        [self loadComments];
+
         _detailsView.hidden = NO;
         _detailsView.alpha = 0;
         [UIView animateWithDuration:0.2
@@ -68,7 +72,22 @@
 
 - (void)loadComments
 {
-    
+    if(!self.comments){
+        self.commentButton.titleLabel.text = @"";
+        
+        //Get Comments From API
+        API *api = [[API alloc]init];
+        api.delegate = self;
+        [api getCommentsForPhotoId:self.image.imageID];
+    }
 }
+
+#pragma mark - API Delegate Methods
+- (void)commentsReturned:(NSArray *)comments
+{
+    self.comments = comments;
+    self.commentButton.titleLabel.text = [NSString stringWithFormat:@"%i",[comments count]];
+}
+
 
 @end

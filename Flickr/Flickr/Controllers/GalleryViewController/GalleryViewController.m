@@ -11,8 +11,9 @@
 #import "ImageGridView.h"
 #import "API.h"
 
-@interface GalleryViewController () <APIDelegate>
+@interface GalleryViewController () <APIDelegate, ImageGridViewDelegate>
 @property (weak, nonatomic) IBOutlet ImageGridView *imageGridView;
+@property (strong, nonatomic) API *api;
 
 @end
 
@@ -30,8 +31,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     self.title = @"Gallery";
+    
+    self.api = [[API alloc]init];
+    self.api.delegate = self;
+    
+    self.imageGridView.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -45,27 +50,24 @@
 //    }
     
     
-    //Get Images From API
-    API *api = [[API alloc]init];
-    api.delegate = self;
-    [api loadPopularImages];
-    
-    
-    //https://api.flickr.com/services/rest/?&method=flickr.photos.getRecent&api_key=7f5aa8ec4143541af9a984fa08769e6e&extras=url_m&per_page=12&format=json
-    
-    //[_imageGridView setImagesArray:];
+    [self.api loadRecentImages];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - API Delegate Methods
 - (void)imagesReturned:(NSArray *)images
 {
     [self.imageGridView setImagesArray:images];
+}
+
+#pragma mark - ImageGridView Delegate Methods
+- (void)refreshCollectionView
+{
+    [self.api loadRecentImages];
 }
 
 @end

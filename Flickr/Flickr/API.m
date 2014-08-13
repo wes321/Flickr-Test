@@ -19,7 +19,7 @@ static NSString * const imagesPerRequest = @"25";
 
 @implementation API
 
-- (void)loadPopularImages
+- (void)loadRecentImages
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"%@method=flickr.photos.getRecent&api_key=%@&extras=url_m,owner_name&per_page=%@&format=json&nojsoncallback=1",baseURL,flickrAPIKey,imagesPerRequest] parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
@@ -31,7 +31,7 @@ static NSString * const imagesPerRequest = @"25";
                 for (int i = 0; i < [images count]; i++) {
                     Image *image = [[Image alloc]init];
                     image.imageURL = [[images objectAtIndex:i] objectForKey:@"url_m"];
-                    image.imageID  = @([[[images objectAtIndex:i] objectForKey:@"id"] intValue]);
+                    image.imageID  = [[images objectAtIndex:i] objectForKey:@"id"];
                     image.username = [[images objectAtIndex:i] objectForKey:@"ownername"];
                     image.title = [[images objectAtIndex:i] objectForKey:@"title"];
                     
@@ -44,23 +44,26 @@ static NSString * const imagesPerRequest = @"25";
                     [self.delegate imagesReturned:imageObjectArray];
                 }
             } else {
-                NSLog(@"loadPopularImages Error: Invalid Response - %@",response);
+                NSLog(@"loadRecentImages Error: Invalid Response - %@",response);
             }
 
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"loadPopularImages Error: %@",error.description);
+        NSLog(@"loadRecentImages Error: %@",error.description);
     }];
     
 }
 
-- (void)getCommentsForPhotoId:(int)photoId
+- (void)getCommentsForPhotoId:(NSNumber *)photoId
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager GET:[NSString stringWithFormat:@"%@method=flickr.photos.comments.getList&api_key=%@&photo_id=%d&format=json&nojsoncallback=1",baseURL,flickrAPIKey,photoId] parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
+    NSString *URL = [NSString stringWithFormat:@"%@method=flickr.photos.comments.getList&api_key=%@&photo_id=%@&format=json&nojsoncallback=1",baseURL,flickrAPIKey,photoId];
+    NSLog(@"URL-%@",URL);
+    [manager GET:URL parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
         
         if([[response objectForKey:@"comments"] objectForKey:@"comment"]){
             NSArray *comments = [[response objectForKey:@"comments"] objectForKey:@"comment"];
             
+            NSLog(@"Comments-%@",comments);
             
             NSMutableArray *commentObjectArray = [[NSMutableArray alloc]init];
             for (int i = 0; i < [comments count]; i++) {
@@ -77,11 +80,11 @@ static NSString * const imagesPerRequest = @"25";
                 [self.delegate commentsReturned:commentObjectArray];
             }
         } else {
-            NSLog(@"loadPopularImages Error: Invalid Response - %@",response);
+            NSLog(@"getCommentsForPhotoId Error: Invalid Response - %@",response);
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"loadPopularImages Error: %@",error.description);
+        NSLog(@"lgetCommentsForPhotoId Error: %@",error.description);
     }];
 }
 

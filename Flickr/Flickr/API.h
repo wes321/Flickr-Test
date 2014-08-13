@@ -11,12 +11,12 @@
 @protocol APIDelegate <NSObject>
 @optional
 - (void)imagesReturned:(NSArray *)images;
-- (void)commentsReturned:(NSArray *)images;
+- (void)commentsReturned:(NSArray *)comments;
 @end
 
+
 @interface API : NSObject
-
 @property (weak,nonatomic) id<APIDelegate> delegate;
-- (void)loadPopularImages;
-
+- (void)loadRecentImages;
+- (void)getCommentsForPhotoId:(NSNumber *)photoId;
 @end

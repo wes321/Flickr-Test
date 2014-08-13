@@ -9,7 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface GalleryViewController : UIViewController
-
 @property (nonatomic) BOOL shouldLaunchWelcome;
-
 @end

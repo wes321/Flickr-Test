@@ -14,6 +14,8 @@ static NSString * const ImageCellIdentifier = @"ImageGridCell";
 
 @interface ImageGridView ()  <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
+
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @end
 
 @implementation ImageGridView
@@ -41,7 +43,13 @@ static NSString * const ImageCellIdentifier = @"ImageGridCell";
     [self.imageCollectionView registerNib:[UINib nibWithNibName:ImageCellIdentifier bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:ImageCellIdentifier];
     
     self.imagesArray = [[NSArray alloc]init];
-     
+    
+    if(!self.refreshControl){
+        self.refreshControl = [[UIRefreshControl alloc]init];
+        [self.imageCollectionView addSubview:self.refreshControl];
+        
+        [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
+    }
 }
 
 - (id)awakeAfterUsingCoder:(NSCoder *)aDecoder
@@ -55,6 +63,17 @@ static NSString * const ImageCellIdentifier = @"ImageGridCell";
         return theView;
     }
     return self;
+}
+
+- (void)refreshTable {
+    //TODO: refresh your data
+    [self.refreshControl endRefreshing];
+    
+    if ([self.delegate respondsToSelector:@selector(refreshCollectionView)])
+    {
+        [self.delegate refreshCollectionView];
+    }
+
 }
 
 - (void)setImagesArray:(NSArray *)imagesArray

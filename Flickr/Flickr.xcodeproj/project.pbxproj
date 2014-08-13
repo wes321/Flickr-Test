@@ -7,21 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C68678DD5444813BE1327E6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 318DBA10421D40E593A83BEE /* libPods.a */; };
 		DE95EFF5199A6D0900DD7B07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE95EFF4199A6D0900DD7B07 /* Foundation.framework */; };
 		DE95EFF7199A6D0900DD7B07 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE95EFF6199A6D0900DD7B07 /* CoreGraphics.framework */; };
 		DE95EFF9199A6D0900DD7B07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE95EFF8199A6D0900DD7B07 /* UIKit.framework */; };
 		DE95EFFF199A6D0900DD7B07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE95EFFD199A6D0900DD7B07 /* InfoPlist.strings */; };
 		DE95F001199A6D0900DD7B07 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F000199A6D0900DD7B07 /* main.m */; };
 		DE95F005199A6D0900DD7B07 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F004199A6D0900DD7B07 /* AppDelegate.m */; };
-		DE95F00B199A6D0900DD7B07 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F00A199A6D0900DD7B07 /* ViewController.m */; };
 		DE95F00D199A6D0900DD7B07 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE95F00C199A6D0900DD7B07 /* Images.xcassets */; };
 		DE95F014199A6D0900DD7B07 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE95F013199A6D0900DD7B07 /* XCTest.framework */; };
 		DE95F015199A6D0900DD7B07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE95EFF4199A6D0900DD7B07 /* Foundation.framework */; };
 		DE95F016199A6D0900DD7B07 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE95EFF8199A6D0900DD7B07 /* UIKit.framework */; };
 		DE95F01E199A6D0900DD7B07 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DE95F01C199A6D0900DD7B07 /* InfoPlist.strings */; };
 		DE95F020199A6D0900DD7B07 /* FlickrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F01F199A6D0900DD7B07 /* FlickrTests.m */; };
-		DE95F02C199A6D6000DD7B07 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F02A199A6D6000DD7B07 /* WelcomeViewController.m */; };
-		DE95F02D199A6D6000DD7B07 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE95F02B199A6D6000DD7B07 /* WelcomeViewController.xib */; };
+		DE95F05C199A798E00DD7B07 /* GalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F056199A798E00DD7B07 /* GalleryViewController.m */; };
+		DE95F05D199A798E00DD7B07 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE95F057199A798E00DD7B07 /* GalleryViewController.xib */; };
+		DE95F05E199A798E00DD7B07 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F05A199A798E00DD7B07 /* WelcomeViewController.m */; };
+		DE95F05F199A798E00DD7B07 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE95F05B199A798E00DD7B07 /* WelcomeViewController.xib */; };
+		DE95F064199A799E00DD7B07 /* ImageGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F062199A799E00DD7B07 /* ImageGridView.m */; };
+		DE95F065199A799E00DD7B07 /* ImageGridView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE95F063199A799E00DD7B07 /* ImageGridView.xib */; };
+		DE95F069199A79D500DD7B07 /* ImageGridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F068199A79D500DD7B07 /* ImageGridCell.m */; };
+		DE95F06B199A79E100DD7B07 /* ImageGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE95F06A199A79E100DD7B07 /* ImageGridCell.xib */; };
+		DE95F08C199A87CC00DD7B07 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F08B199A87CC00DD7B07 /* API.m */; };
+		DE95F090199AA75400DD7B07 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F08F199AA75400DD7B07 /* UIView+Additions.m */; };
+		DE95F094199AABAC00DD7B07 /* Image.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F093199AABAC00DD7B07 /* Image.m */; };
+		DE95F097199BC52900DD7B07 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = DE95F096199BC52900DD7B07 /* Comment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		318DBA10421D40E593A83BEE /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE95EFF1199A6D0900DD7B07 /* Flickr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flickr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE95EFF4199A6D0900DD7B07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DE95EFF6199A6D0900DD7B07 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -45,17 +56,33 @@
 		DE95F002199A6D0900DD7B07 /* Flickr-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Flickr-Prefix.pch"; sourceTree = "<group>"; };
 		DE95F003199A6D0900DD7B07 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DE95F004199A6D0900DD7B07 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DE95F009199A6D0900DD7B07 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DE95F00A199A6D0900DD7B07 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DE95F00C199A6D0900DD7B07 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DE95F012199A6D0900DD7B07 /* FlickrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE95F013199A6D0900DD7B07 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		DE95F01B199A6D0900DD7B07 /* FlickrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlickrTests-Info.plist"; sourceTree = "<group>"; };
 		DE95F01D199A6D0900DD7B07 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		DE95F01F199A6D0900DD7B07 /* FlickrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrTests.m; sourceTree = "<group>"; };
-		DE95F029199A6D6000DD7B07 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
-		DE95F02A199A6D6000DD7B07 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
-		DE95F02B199A6D6000DD7B07 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		DE95F055199A798E00DD7B07 /* GalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GalleryViewController.h; sourceTree = "<group>"; };
+		DE95F056199A798E00DD7B07 /* GalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryViewController.m; sourceTree = "<group>"; };
+		DE95F057199A798E00DD7B07 /* GalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
+		DE95F059199A798E00DD7B07 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		DE95F05A199A798E00DD7B07 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		DE95F05B199A798E00DD7B07 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		DE95F061199A799E00DD7B07 /* ImageGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGridView.h; sourceTree = "<group>"; };
+		DE95F062199A799E00DD7B07 /* ImageGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGridView.m; sourceTree = "<group>"; };
+		DE95F063199A799E00DD7B07 /* ImageGridView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageGridView.xib; sourceTree = "<group>"; };
+		DE95F067199A79D500DD7B07 /* ImageGridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageGridCell.h; sourceTree = "<group>"; };
+		DE95F068199A79D500DD7B07 /* ImageGridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageGridCell.m; sourceTree = "<group>"; };
+		DE95F06A199A79E100DD7B07 /* ImageGridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageGridCell.xib; sourceTree = "<group>"; };
+		DE95F08A199A87CC00DD7B07 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		DE95F08B199A87CC00DD7B07 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		DE95F08E199AA75400DD7B07 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		DE95F08F199AA75400DD7B07 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		DE95F092199AABAC00DD7B07 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
+		DE95F093199AABAC00DD7B07 /* Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Image.m; sourceTree = "<group>"; };
+		DE95F095199BC52900DD7B07 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		DE95F096199BC52900DD7B07 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		F03176DD62AF4F56976708E5 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +93,7 @@
 				DE95EFF7199A6D0900DD7B07 /* CoreGraphics.framework in Frameworks */,
 				DE95EFF9199A6D0900DD7B07 /* UIKit.framework in Frameworks */,
 				DE95EFF5199A6D0900DD7B07 /* Foundation.framework in Frameworks */,
+				7C68678DD5444813BE1327E6 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +117,7 @@
 				DE95F019199A6D0900DD7B07 /* FlickrTests */,
 				DE95EFF3199A6D0900DD7B07 /* Frameworks */,
 				DE95EFF2199A6D0900DD7B07 /* Products */,
+				F03176DD62AF4F56976708E5 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +137,7 @@
 				DE95EFF6199A6D0900DD7B07 /* CoreGraphics.framework */,
 				DE95EFF8199A6D0900DD7B07 /* UIKit.framework */,
 				DE95F013199A6D0900DD7B07 /* XCTest.framework */,
+				318DBA10421D40E593A83BEE /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,15 +145,16 @@
 		DE95EFFA199A6D0900DD7B07 /* Flickr */ = {
 			isa = PBXGroup;
 			children = (
+				DE95F091199AABA300DD7B07 /* Model */,
+				DE95F08A199A87CC00DD7B07 /* API.h */,
+				DE95F08B199A87CC00DD7B07 /* API.m */,
 				DE95F003199A6D0900DD7B07 /* AppDelegate.h */,
 				DE95F004199A6D0900DD7B07 /* AppDelegate.m */,
-				DE95F009199A6D0900DD7B07 /* ViewController.h */,
-				DE95F00A199A6D0900DD7B07 /* ViewController.m */,
+				DE95F08D199AA73C00DD7B07 /* Categories */,
+				DE95F042199A796100DD7B07 /* Controllers */,
 				DE95F00C199A6D0900DD7B07 /* Images.xcassets */,
+				DE95F049199A796100DD7B07 /* Reusable Views */,
 				DE95EFFB199A6D0900DD7B07 /* Supporting Files */,
-				DE95F029199A6D6000DD7B07 /* WelcomeViewController.h */,
-				DE95F02A199A6D6000DD7B07 /* WelcomeViewController.m */,
-				DE95F02B199A6D6000DD7B07 /* WelcomeViewController.xib */,
 			);
 			path = Flickr;
 			sourceTree = "<group>";
@@ -157,6 +188,84 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		DE95F042199A796100DD7B07 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DE95F054199A798E00DD7B07 /* GalleryViewController */,
+				DE95F058199A798E00DD7B07 /* WelcomeViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DE95F049199A796100DD7B07 /* Reusable Views */ = {
+			isa = PBXGroup;
+			children = (
+				DE95F060199A799E00DD7B07 /* ImageGridView */,
+			);
+			path = "Reusable Views";
+			sourceTree = "<group>";
+		};
+		DE95F054199A798E00DD7B07 /* GalleryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DE95F055199A798E00DD7B07 /* GalleryViewController.h */,
+				DE95F056199A798E00DD7B07 /* GalleryViewController.m */,
+				DE95F057199A798E00DD7B07 /* GalleryViewController.xib */,
+			);
+			path = GalleryViewController;
+			sourceTree = "<group>";
+		};
+		DE95F058199A798E00DD7B07 /* WelcomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DE95F059199A798E00DD7B07 /* WelcomeViewController.h */,
+				DE95F05A199A798E00DD7B07 /* WelcomeViewController.m */,
+				DE95F05B199A798E00DD7B07 /* WelcomeViewController.xib */,
+			);
+			path = WelcomeViewController;
+			sourceTree = "<group>";
+		};
+		DE95F060199A799E00DD7B07 /* ImageGridView */ = {
+			isa = PBXGroup;
+			children = (
+				DE95F066199A79BD00DD7B07 /* ImageGridCell */,
+				DE95F061199A799E00DD7B07 /* ImageGridView.h */,
+				DE95F062199A799E00DD7B07 /* ImageGridView.m */,
+				DE95F063199A799E00DD7B07 /* ImageGridView.xib */,
+			);
+			path = ImageGridView;
+			sourceTree = "<group>";
+		};
+		DE95F066199A79BD00DD7B07 /* ImageGridCell */ = {
+			isa = PBXGroup;
+			children = (
+				DE95F067199A79D500DD7B07 /* ImageGridCell.h */,
+				DE95F068199A79D500DD7B07 /* ImageGridCell.m */,
+				DE95F06A199A79E100DD7B07 /* ImageGridCell.xib */,
+			);
+			path = ImageGridCell;
+			sourceTree = "<group>";
+		};
+		DE95F08D199AA73C00DD7B07 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				DE95F08E199AA75400DD7B07 /* UIView+Additions.h */,
+				DE95F08F199AA75400DD7B07 /* UIView+Additions.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		DE95F091199AABA300DD7B07 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DE95F092199AABAC00DD7B07 /* Image.h */,
+				DE95F093199AABAC00DD7B07 /* Image.m */,
+				DE95F095199BC52900DD7B07 /* Comment.h */,
+				DE95F096199BC52900DD7B07 /* Comment.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +273,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE95F023199A6D0900DD7B07 /* Build configuration list for PBXNativeTarget "Flickr" */;
 			buildPhases = (
+				3A6878B65CF646B99A40CDEC /* Check Pods Manifest.lock */,
 				DE95EFED199A6D0900DD7B07 /* Sources */,
 				DE95EFEE199A6D0900DD7B07 /* Frameworks */,
 				DE95EFEF199A6D0900DD7B07 /* Resources */,
+				D3D65710C9794337ABE4BBBA /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -235,9 +346,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE95F065199A799E00DD7B07 /* ImageGridView.xib in Resources */,
+				DE95F05F199A798E00DD7B07 /* WelcomeViewController.xib in Resources */,
+				DE95F05D199A798E00DD7B07 /* GalleryViewController.xib in Resources */,
 				DE95F00D199A6D0900DD7B07 /* Images.xcassets in Resources */,
 				DE95EFFF199A6D0900DD7B07 /* InfoPlist.strings in Resources */,
-				DE95F02D199A6D6000DD7B07 /* WelcomeViewController.xib in Resources */,
+				DE95F06B199A79E100DD7B07 /* ImageGridCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,15 +365,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3A6878B65CF646B99A40CDEC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D3D65710C9794337ABE4BBBA /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DE95EFED199A6D0900DD7B07 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DE95F00B199A6D0900DD7B07 /* ViewController.m in Sources */,
-				DE95F02C199A6D6000DD7B07 /* WelcomeViewController.m in Sources */,
+				DE95F090199AA75400DD7B07 /* UIView+Additions.m in Sources */,
+				DE95F064199A799E00DD7B07 /* ImageGridView.m in Sources */,
 				DE95F005199A6D0900DD7B07 /* AppDelegate.m in Sources */,
+				DE95F097199BC52900DD7B07 /* Comment.m in Sources */,
 				DE95F001199A6D0900DD7B07 /* main.m in Sources */,
+				DE95F069199A79D500DD7B07 /* ImageGridCell.m in Sources */,
+				DE95F05E199A798E00DD7B07 /* WelcomeViewController.m in Sources */,
+				DE95F094199AABAC00DD7B07 /* Image.m in Sources */,
+				DE95F08C199A87CC00DD7B07 /* API.m in Sources */,
+				DE95F05C199A798E00DD7B07 /* GalleryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +526,7 @@
 		};
 		DE95F024199A6D0900DD7B07 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F03176DD62AF4F56976708E5 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -387,6 +541,7 @@
 		};
 		DE95F025199A6D0900DD7B07 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F03176DD62AF4F56976708E5 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -458,6 +613,7 @@
 				DE95F025199A6D0900DD7B07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DE95F026199A6D0900DD7B07 /* Build configuration list for PBXNativeTarget "FlickrTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +622,7 @@
 				DE95F028199A6D0900DD7B07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

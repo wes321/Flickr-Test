@@ -7,12 +7,22 @@
 //
 
 #import "AppDelegate.h"
+#import "GalleryViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    GalleryViewController *galleryViewController = [[GalleryViewController alloc]initWithNibName:@"GalleryViewController" bundle:[NSBundle mainBundle]];
+    [galleryViewController setShouldLaunchWelcome:YES];
+
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
+
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = navController;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							

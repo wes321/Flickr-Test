@@ -43,6 +43,10 @@ static NSString * const imageCellIdentifier = @"ImageGridCell";
         
         [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     }
+    
+    [self.activityIndicator startAnimating];
+    [self.imageCollectionView setHidden:YES];
+    [self.imageCollectionView setAlpha:0];
 }
 
 - (id)awakeAfterUsingCoder:(NSCoder *)aDecoder
@@ -74,6 +78,17 @@ static NSString * const imageCellIdentifier = @"ImageGridCell";
     _imagesArray = imagesArray;
     [self.activityIndicator stopAnimating];
     [self.imageCollectionView reloadData];
+    
+    if(self.imageCollectionView.hidden){
+        [self.imageCollectionView setHidden:NO];
+        [UIView animateWithDuration:0.3
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveEaseInOut
+                         animations:^{
+                             [self.imageCollectionView setAlpha:1];
+                         }
+                         completion:^(BOOL finished){}];
+    }
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView

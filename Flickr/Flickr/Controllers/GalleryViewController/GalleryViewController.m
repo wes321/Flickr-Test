@@ -47,10 +47,10 @@
         WelcomeViewController *welcomeViewController = [[WelcomeViewController alloc]initWithNibName:@"WelcomeViewController" bundle:[NSBundle mainBundle]];
         [self presentViewController:welcomeViewController animated:NO completion:^{
         }];
+    } else {
+        [self.api loadRecentImages];
     }
     
-    
-    [self.api loadRecentImages];
 }
 
 - (void)didReceiveMemoryWarning

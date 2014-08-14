@@ -9,12 +9,13 @@
 #import "ImageGridView.h"
 #import "ImageGridCell.h"
 
-static NSString * const ImageCellIdentifier = @"ImageGridCell";
+static NSString * const imageCellIdentifier = @"ImageGridCell";
 
 
 @interface ImageGridView ()  <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *imageCollectionView;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @end
 
@@ -40,7 +41,7 @@ static NSString * const ImageCellIdentifier = @"ImageGridCell";
 
 - (void)awakeFromNib
 {
-    [self.imageCollectionView registerNib:[UINib nibWithNibName:ImageCellIdentifier bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:ImageCellIdentifier];
+    [self.imageCollectionView registerNib:[UINib nibWithNibName:imageCellIdentifier bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:imageCellIdentifier];
     
     self.imagesArray = [[NSArray alloc]init];
     
@@ -79,6 +80,7 @@ static NSString * const ImageCellIdentifier = @"ImageGridCell";
 - (void)setImagesArray:(NSArray *)imagesArray
 {
     _imagesArray = imagesArray;
+    [self.activityIndicator stopAnimating];
     [self.imageCollectionView reloadData];
 }
 
@@ -94,7 +96,7 @@ static NSString * const ImageCellIdentifier = @"ImageGridCell";
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ImageGridCell *imageCell = [collectionView dequeueReusableCellWithReuseIdentifier:ImageCellIdentifier
+    ImageGridCell *imageCell = [collectionView dequeueReusableCellWithReuseIdentifier:imageCellIdentifier
                                               forIndexPath:indexPath];
     
     imageCell.image = [self.imagesArray objectAtIndex:indexPath.item];

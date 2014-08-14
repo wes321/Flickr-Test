@@ -15,7 +15,7 @@
 //Flickr Config
 static NSString * const flickrAPIKey = @"7f5aa8ec4143541af9a984fa08769e6e";
 static NSString * const baseURL = @"https://api.flickr.com/services/rest/?&";
-static NSString * const imagesPerRequest = @"25";
+static NSString * const imagesPerRequest = @"50";
 
 @implementation API
 
@@ -57,17 +57,17 @@ static NSString * const imagesPerRequest = @"25";
 {
     
     //Test PhotoId with Comments
-   // photoId = @(14888674755);
+   //photoId = @(14888674755);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *URL = [NSString stringWithFormat:@"%@method=flickr.photos.comments.getList&api_key=%@&photo_id=%@&format=json&nojsoncallback=1",baseURL,flickrAPIKey,photoId];
-    NSLog(@"URL-%@",URL);
+    //NSLog(@"URL-%@",URL);
     [manager GET:URL parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
         
         if([[response objectForKey:@"comments"] objectForKey:@"comment"]){
             NSArray *comments = [[response objectForKey:@"comments"] objectForKey:@"comment"];
             
-            NSLog(@"Comments-%@",comments);
+            //NSLog(@"Comments-%@",comments);
             
             NSMutableArray *commentObjectArray = [[NSMutableArray alloc]init];
             for (int i = 0; i < [comments count]; i++) {
@@ -87,7 +87,9 @@ static NSString * const imagesPerRequest = @"25";
                 [self.delegate commentsReturned:commentObjectArray];
             }
         } else {
-            NSLog(@"getCommentsForPhotoId Error: Invalid Response - %@",response);
+            if(![[response objectForKey:@"stat"] isEqualToString:@"ok"]){
+                NSLog(@"getCommentsForPhotoId Error: Invalid Response - %@",response);
+            }
         }
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

@@ -14,7 +14,6 @@
 - (void)commentsReturned:(NSArray *)comments;
 @end
 
-
 @interface API : NSObject
 @property (weak,nonatomic) id<APIDelegate> delegate;
 - (void)loadRecentImages;

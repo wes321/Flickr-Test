@@ -21,8 +21,13 @@ static NSString * const imagesPerRequest = @"50";
 
 - (void)loadRecentImages
 {
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES;
+    
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager GET:[NSString stringWithFormat:@"%@method=flickr.photos.getRecent&api_key=%@&extras=url_m,owner_name&per_page=%@&format=json&nojsoncallback=1",baseURL,flickrAPIKey,imagesPerRequest] parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
+        
+            app.networkActivityIndicatorVisible = NO;
         
             if([[response objectForKey:@"photos"] objectForKey:@"photo"]){
                 NSArray *images = [[response objectForKey:@"photos"] objectForKey:@"photo"];
@@ -45,6 +50,7 @@ static NSString * const imagesPerRequest = @"50";
                 }
             } else {
                 NSLog(@"loadRecentImages Error: Invalid Response - %@",response);
+                app.networkActivityIndicatorVisible = NO;
             }
 
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -56,14 +62,19 @@ static NSString * const imagesPerRequest = @"50";
 - (void)getCommentsForPhotoId:(NSNumber *)photoId
 {
     
+    UIApplication* app = [UIApplication sharedApplication];
+    app.networkActivityIndicatorVisible = YES;
+    
     //Test PhotoId with Comments
-   //photoId = @(14888674755);
+    //photoId = @(14888674755);
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSString *URL = [NSString stringWithFormat:@"%@method=flickr.photos.comments.getList&api_key=%@&photo_id=%@&format=json&nojsoncallback=1",baseURL,flickrAPIKey,photoId];
     //NSLog(@"URL-%@",URL);
     [manager GET:URL parameters:nil success:^(AFHTTPRequestOperation *operation, NSDictionary *response) {
         
+        app.networkActivityIndicatorVisible = NO;
+
         if([[response objectForKey:@"comments"] objectForKey:@"comment"]){
             NSArray *comments = [[response objectForKey:@"comments"] objectForKey:@"comment"];
             
@@ -89,6 +100,7 @@ static NSString * const imagesPerRequest = @"50";
         } else {
             if(![[response objectForKey:@"stat"] isEqualToString:@"ok"]){
                 NSLog(@"getCommentsForPhotoId Error: Invalid Response - %@",response);
+                app.networkActivityIndicatorVisible = NO;
             }
         }
         

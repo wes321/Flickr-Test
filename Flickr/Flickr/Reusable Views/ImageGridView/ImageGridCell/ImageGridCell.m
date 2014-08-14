@@ -57,7 +57,9 @@ static NSString * const cellIdentifier = @"CommentCell";
     
     [self.detailsView setHidden:YES];
     [self.detailsView setFrame:CGRectMake(0, 258, 320, 62)];
-
+    
+    [self.commentCountLabel setHidden:YES];
+    [self.commentButton setHidden:YES];
 }
 
 - (void)toggleDetailsView
@@ -67,7 +69,6 @@ static NSString * const cellIdentifier = @"CommentCell";
 
         [self.detailsView setHidden:NO];
         [self.detailsView setAlpha:0];
-        [self.commentButton setHidden:YES];
         [UIView animateWithDuration:0.2
                               delay:0.0
                             options:UIViewAnimationOptionCurveEaseInOut
@@ -92,11 +93,9 @@ static NSString * const cellIdentifier = @"CommentCell";
 
 - (void)loadComments
 {
-    if(!self.comments){
-        API *api = [[API alloc]init];
-        api.delegate = self;
-        [api getCommentsForPhotoId:self.image.imageID];
-    }
+    API *api = [[API alloc]init];
+    api.delegate = self;
+    [api getCommentsForPhotoId:self.image.imageID];
 }
 
 #pragma mark - API Delegate Methods
@@ -105,21 +104,22 @@ static NSString * const cellIdentifier = @"CommentCell";
     self.comments = comments;
     if([comments count] > 0){
         self.commentCountLabel.text = [NSString stringWithFormat:@"%i",[comments count]];
-        [self.commentCountLabel setAlpha:0];
-        [self.commentCountLabel setHidden:NO];
-        [self.commentButton setAlpha:0];
-        [self.commentButton setHidden:NO];
-
-        [UIView animateWithDuration:0.2
-                              delay:0.0
-                            options:UIViewAnimationOptionCurveEaseInOut
-                         animations:^{
-                             [self.commentCountLabel setAlpha:1];
-                             [self.commentButton setAlpha:1];
-                         }
-                         completion:^(BOOL finished){
-                         }];
-        
+        if(self.commentCountLabel.hidden){
+            [self.commentCountLabel setHidden:NO];
+            [self.commentCountLabel setAlpha:0];
+            [self.commentButton setHidden:NO];
+            [self.commentButton setAlpha:0];
+            
+            [UIView animateWithDuration:0.2
+                                  delay:0.0
+                                options:UIViewAnimationOptionCurveEaseInOut
+                             animations:^{
+                                 [self.commentCountLabel setAlpha:1];
+                                 [self.commentButton setAlpha:1];
+                             }
+                             completion:^(BOOL finished){
+                             }];
+        }
         [self.commentsTableView reloadData];
     } else {
         self.commentCountLabel.text = @"";

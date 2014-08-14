@@ -41,13 +41,13 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-//    if(self.shouldLaunchWelcome){
-//        self.shouldLaunchWelcome = NO;
-//
-//        WelcomeViewController *welcomeViewController = [[WelcomeViewController alloc]initWithNibName:@"WelcomeViewController" bundle:[NSBundle mainBundle]];
-//        [self presentViewController:welcomeViewController animated:NO completion:^{
-//        }];
-//    }
+    if(self.shouldLaunchWelcome){
+        [self setShouldLaunchWelcome:NO];
+
+        WelcomeViewController *welcomeViewController = [[WelcomeViewController alloc]initWithNibName:@"WelcomeViewController" bundle:[NSBundle mainBundle]];
+        [self presentViewController:welcomeViewController animated:NO completion:^{
+        }];
+    }
     
     
     [self.api loadRecentImages];

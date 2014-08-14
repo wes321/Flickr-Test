@@ -53,12 +53,12 @@
     
     self.dateLabel.text = [dateFormatter stringFromDate:comment.dateCreated];
     
-    self.messageLabel.frame = CGRectMake(9, 26, 303, 50);
+    [self.messageLabel setFrame:CGRectMake(9, 26, 303, 50)];
     self.messageLabel.text = [comment.message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     
     [self.messageLabel sizeToFit];
     
-    self.messageLabel.frame = CGRectMake(self.messageLabel.frame.origin.x, 26, self.messageLabel.frame.size.width, self.messageLabel.frame.size.height);
+    [self.messageLabel setFrame: CGRectMake(self.messageLabel.frame.origin.x, 26, self.messageLabel.frame.size.width, self.messageLabel.frame.size.height)];
 
 }
 

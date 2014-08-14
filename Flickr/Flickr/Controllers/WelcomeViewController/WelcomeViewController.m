@@ -33,13 +33,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _browseButton.layer.cornerRadius = 5;
+    [self.browseButton.layer setCornerRadius:5];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    _browseButton.alpha = 0;
-    _logoImageView.alpha = 0;
+    [self.browseButton setAlpha:0];
+    [self.logoImageView setAlpha:0];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -47,11 +47,11 @@
                           delay:0.5
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
-                         _browseButton.alpha = 1;
-                         _browseButton.frame = CGRectMake(_browseButton.frame.origin.x, _browseButton.frame.origin.y - 20, _browseButton.frame.size.width, _browseButton.frame.size.height);
+                         [self.browseButton setAlpha:1];
+                         [self.browseButton setFrame: CGRectMake(self.browseButton.frame.origin.x, self.browseButton.frame.origin.y - 20, self.browseButton.frame.size.width, self.browseButton.frame.size.height)];
                          
-                         _logoImageView.alpha = 1;
-                         _logoImageView.frame = CGRectMake(_logoImageView.frame.origin.x, _logoImageView.frame.origin.y - 20, _logoImageView.frame.size.width, _logoImageView.frame.size.height);
+                         [self.logoImageView setAlpha:1];
+                         [self.logoImageView setFrame: CGRectMake(self.logoImageView.frame.origin.x, self.logoImageView.frame.origin.y - 20, self.logoImageView.frame.size.width, self.logoImageView.frame.size.height)];
                      }
                      completion:^(BOOL finished){
                          
